@@ -30,11 +30,6 @@ void main() async {
       themeMode: ThemeMode.system,
       theme: AppThemes.lighttheme,
       darkTheme: AppThemes.darktheme,
-      // theme: ThemeData.light(
-      //   useMaterial3: true,
-      // ),
-      // darkTheme: ThemeData.dark(useMaterial3: true),
-      // themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       getPages: [
         GetPage(name: '/', page: () => const Home_page()),

@@ -7,9 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:material_dialogs/dialogs.dart';
-import 'package:material_dialogs/widgets/buttons/icon_button.dart';
-import 'package:material_dialogs/widgets/buttons/icon_outline_button.dart';
+
 
 import '../../utills/globals.dart';
 
@@ -22,7 +20,6 @@ class Chat_page extends StatefulWidget {
 
 class _Chat_pageState extends State<Chat_page> {
   List<String> args = Get.arguments as List<String>;
-
 
   TextEditingController sendmessageController = TextEditingController();
   ThemeController themeController = Get.put(ThemeController());
@@ -108,88 +105,49 @@ class _Chat_pageState extends State<Chat_page> {
                                     children: [
                                       Row(
                                         children: [
-                                          GestureDetector(
-                                            onTap: () {
-                                              Dialogs.bottomMaterialDialog(
-                                                  msg:
-                                                      'Are you sure? you can\'t undo this action',
-                                                  title: 'Delete',
-                                                  context: context,
-                                                  actions: [
-                                                    IconsOutlineButton(
-                                                      onPressed: () {
-                                                        Get.back();
-                                                      },
-                                                      text: 'Cancel',
-                                                      iconData:
-                                                          Icons.cancel_outlined,
-                                                      textStyle:
-                                                          const TextStyle(
-                                                              color:
-                                                                  Colors.grey),
-                                                      iconColor: Colors.grey,
-                                                    ),
-                                                    IconsButton(
-                                                      onPressed: () async {
-                                                        await FireBaseFireStoreHelper
-                                                            .fireBaseFireStoreHelper
-                                                            .deleteMessage(
-                                                                id: allDocs[i]
-                                                                        .data()[
-                                                                    'msg']);
-                                                      },
-                                                      text: 'Delete',
-                                                      iconData: Icons.delete,
-                                                      color: Colors.red,
-                                                      textStyle:
-                                                          const TextStyle(
-                                                              color:
-                                                                  Colors.white),
-                                                      iconColor: Colors.white,
-                                                    ),
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              crossAxisAlignment: ((allDocs[i]
-                                                          .data()['sentBy']) ==
-                                                      FirebaseAuthHelper
-                                                          .firebaseAuth
-                                                          .currentUser
-                                                          ?.uid)
-                                                  ? CrossAxisAlignment.end
-                                                  : CrossAxisAlignment.start,
-                                              children: [
-                                                Center(
-                                                    child: Text(
-                                                        "${allDocs[i].data()['timestamp'].toDate().toString().split(" ")[0]}")),
-                                                Chip(
-                                                  label: Text(
-                                                    "${allDocs[i].data()['msg']}",
-                                                    style:
-                                                        GoogleFonts.aBeeZee(),
-                                                  ),
-                                                  backgroundColor:
-                                                      (allDocs[i].data()[
-                                                                  'sentBy'] ==
-                                                              FirebaseAuthHelper
-                                                                  .firebaseAuth
-                                                                  .currentUser
-                                                                  ?.uid)
-                                                          ? Colors.blueAccent
-                                                          : Colors.transparent,
-                                                  elevation: 0,
-                                                  autofocus: false,
+                                          Column(
+                                            crossAxisAlignment: ((allDocs[i]
+                                                        .data()['sentBy']) ==
+                                                    FirebaseAuthHelper
+                                                        .firebaseAuth
+                                                        .currentUser
+                                                        ?.uid)
+                                                ? CrossAxisAlignment.end
+                                                : CrossAxisAlignment.start,
+                                            children: [
+                                              Center(
+                                                  child: Text(allDocs[i]
+                                                      .data()['timestamp']
+                                                      .toDate()
+                                                      .toString()
+                                                      .split(" ")[0])),
+                                              Chip(
+                                                label: Text(
+                                                  "${allDocs[i].data()['msg']}",
+                                                  style:
+                                                      GoogleFonts.aBeeZee(),
                                                 ),
-                                                (allDocs[i].data()[
-                                                            'timestamp'] ==
-                                                        null)
-                                                    ? const Text("")
-                                                    // : Text(
-                                                    //     "${dateTime.hour}:${dateTime.minute} ${"am"}"),
-                                                : Text(
-                                                    "${allDocs[i].data()['timestamp'].toDate().toString().split(" ")[1].toString().split(".")[0]}"),
-                                              ],
-                                            ),
+                                                backgroundColor:
+                                                    (allDocs[i].data()[
+                                                                'sentBy'] ==
+                                                            FirebaseAuthHelper
+                                                                .firebaseAuth
+                                                                .currentUser
+                                                                ?.uid)
+                                                        ? Colors.blueAccent
+                                                        : Colors.transparent,
+                                                elevation: 0,
+                                                autofocus: false,
+                                              ),
+                                              (allDocs[i].data()[
+                                                          'timestamp'] ==
+                                                      null)
+                                                  ? const Text("")
+                                                  : Text(
+                                                      "${dateTime.hour}:${dateTime.minute} ${"am"}"),
+                                              // : Text(
+                                              //     "${allDocs[i].data()['timestamp'].toDate().toString().split(" ")[1].toString().split(".")[0]}"),
+                                            ],
                                           ),
                                           (allDocs[i].data()['sentBy'] ==
                                                   FirebaseAuthHelper

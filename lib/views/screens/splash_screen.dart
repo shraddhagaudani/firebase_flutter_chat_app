@@ -37,10 +37,18 @@ class _Splash_screen1State extends State<Splash_screen1> {
     Future.delayed(const Duration(seconds: 2)).then(
       (value) => (introAccessController.introAccess_Model.introaccess)
           ? (loginoutController.loginInOutModel.islogin)
-              ? Get.offAndToNamed('/',
-                  arguments: FirebaseAuthHelper.firebaseAuth.currentUser)
-              : Get.offAndToNamed('/login_page')
-          : Get.offAllNamed('/intro_screen1'),
+              ? Get.offAndToNamed(
+                  '/',
+                  arguments: FirebaseAuthHelper.firebaseAuth.currentUser,
+                )
+              : Get.offAndToNamed(
+                  '/login_page',
+                  arguments: FirebaseAuthHelper.firebaseAuth.currentUser,
+                )
+          : Get.offAllNamed(
+              '/intro_screen1',
+              arguments: FirebaseAuthHelper.firebaseAuth.currentUser,
+            ),
     );
     return Scaffold(
       backgroundColor: CupertinoColors.white,

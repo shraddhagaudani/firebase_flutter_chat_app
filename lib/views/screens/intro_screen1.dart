@@ -41,7 +41,7 @@ class _Intro_screen1State extends State<Intro_screen1> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 60,
               ),
               const Text(
                 "The Best Social Media App of the Century",
@@ -63,7 +63,7 @@ class _Intro_screen1State extends State<Intro_screen1> {
                     fontSize: 19),
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               GestureDetector(
                 onTap: () async {

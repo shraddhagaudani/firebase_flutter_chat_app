@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../controllers/theme_controller.dart';
 import '../../utills/helper/firebase_auth_helper.dart';
 
 class Delete_AccountPage extends StatefulWidget {
@@ -18,14 +19,16 @@ class _Delete_AccountPageState extends State<Delete_AccountPage> {
   GlobalKey<FormState> deleteaccountformkey = GlobalKey<FormState>();
   TextEditingController deleteaccountemailController = TextEditingController();
   TextEditingController deleteaccountpasswordController =
-  TextEditingController();
+      TextEditingController();
+
+  ThemeController themeController = Get.put(ThemeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             Row(
@@ -37,15 +40,17 @@ class _Delete_AccountPageState extends State<Delete_AccountPage> {
                   onPressed: () {
                     Get.back();
                   },
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.black,
+                    color: (themeController.darkModeModel.isdark)
+                        ? Colors.white
+                        : Colors.black,
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: Get.height * 0.03,
+              height: Get.height * 0.01,
             ),
             Text(
               "Delete your Account",
@@ -143,8 +148,8 @@ class _Delete_AccountPageState extends State<Delete_AccountPage> {
                         deleteaccountformkey.currentState!.save();
                         print(FirebaseAuthHelper.firebaseAuthHelper
                             .deleteUserAccount(
-                            Email: deleteemail!,
-                            Password: deletepassword!));
+                                Email: deleteemail!,
+                                Password: deletepassword!));
 
                         FirebaseAuthHelper.firebaseAuthHelper.deleteUserAccount(
                             Email: deleteemail!, Password: deletepassword!);

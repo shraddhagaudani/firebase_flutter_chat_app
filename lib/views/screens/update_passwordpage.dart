@@ -1,3 +1,4 @@
+import 'package:firebase_flutter_app/controllers/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -16,6 +17,8 @@ class _Update_PasswordpageState extends State<Update_Passwordpage> {
   TextEditingController passwordController = TextEditingController();
   String? newpassword;
 
+  ThemeController themeController = Get.put(ThemeController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +36,15 @@ class _Update_PasswordpageState extends State<Update_Passwordpage> {
                   onPressed: () {
                     Get.back();
                   },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  ),
+                  icon: Icon(Icons.arrow_back_ios,
+                      color: (themeController.darkModeModel.isdark)
+                          ? Colors.white
+                          : Colors.black),
                 ),
               ],
             ),
             SizedBox(
-              height: Get.height * 0.03,
+              height: Get.height * 0.01,
             ),
             Text(
               "Update your password",
@@ -71,7 +74,7 @@ class _Update_PasswordpageState extends State<Update_Passwordpage> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: Get.height * 0.1,
+                    height: Get.height * 0.08,
                   ),
                   Row(
                     children: [
@@ -110,7 +113,7 @@ class _Update_PasswordpageState extends State<Update_Passwordpage> {
                     },
                   ),
                   SizedBox(
-                    height: Get.height * 0.1,
+                    height: Get.height * 0.03,
                   ),
                   OutlinedButton(
                     onPressed: () {

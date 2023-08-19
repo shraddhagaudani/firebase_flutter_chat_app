@@ -30,7 +30,6 @@ class _Login_pageState extends State<Login_page> {
       builder: (_) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.white,
           body: Container(
             color: (themeController.darkModeModel.isdark)
                 ? Colors.black
@@ -110,7 +109,6 @@ class _Login_pageState extends State<Login_page> {
                           ),
                           ElevatedButton(
                             style: const ButtonStyle(
-
                               backgroundColor:
                                   MaterialStatePropertyAll(Colors.blueAccent),
                             ),

@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home_page extends StatefulWidget {
   const Home_page({super.key});
@@ -41,7 +42,6 @@ class _Home_pageState extends State<Home_page> {
       drawer: GetBuilder<ThemeController>(
         builder: (_) {
           return Drawer(
-
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -76,16 +76,18 @@ class _Home_pageState extends State<Home_page> {
                             ? ""
                             : "Name: "),
                     // const Text("Name :"),
-                    Text((user!.isAnonymous)
-                        ? ""
-                        : (user?.displayName == null)
-                            ? ""
-                            : "${user!.displayName}"),
+                    Text(
+                      (user!.isAnonymous)
+                          ? ""
+                          : (user?.displayName == null)
+                              ? ""
+                              : FirebaseAuthHelper
+                                  .firebaseAuth.currentUser?.email
+                                  ?.split('@')[0] as String,
+                    ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -155,11 +157,9 @@ class _Home_pageState extends State<Home_page> {
                   trailing: Switch(
                     value: themeController.darkModeModel.isdark,
                     onChanged: (val) {
-                      print("========================");
-                      print("1");
-                    setState(() {
-                      themeController.darkThemeUDF(val: val);
-                    });
+                      setState(() {
+                        themeController.darkThemeUDF(val: val);
+                      });
                       // Get.changeTheme(Get.isDarkMode
                       //     ? ThemeData.light()
                       //     : ThemeData.dark());
@@ -173,29 +173,22 @@ class _Home_pageState extends State<Home_page> {
         },
       ),
       appBar: AppBar(
-        title: const Text("HomePage"),
-        // leading: Padding(
-        //   padding: const EdgeInsets.all(8.0),
-        //   child: Text(FirebaseAuthHelper.firebaseAuth.currentUser?.email
-        //       ?.split('@')[0] as String),
-        // ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              FirebaseAuthHelper.firebaseAuthHelper.signOut();
-
-              Get.offNamed('/login_page');
-            },
-            icon: const Icon(CupertinoIcons.power),
-          ),
-          IconButton(
+          title: const Text("HomePage"),
+          // leading: Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Text(FirebaseAuthHelper.firebaseAuth.currentUser?.email
+          //       ?.split('@')[0] as String),
+          // ),
+          actions: [
+            IconButton(
               onPressed: () {
-                Get.changeTheme(
-                    Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+                FirebaseAuthHelper.firebaseAuthHelper.signOut();
+
+                Get.offNamed('/login_page');
               },
-              icon: Icon(CupertinoIcons.sun_min))
-        ],
-      ),
+              icon: const Icon(CupertinoIcons.power),
+            ),
+          ]),
       body: StreamBuilder(
         stream: FireBaseFireStoreHelper.fireBaseFireStoreHelper.fetchAllUsers(),
         builder: (context, snapshot) {
@@ -251,12 +244,24 @@ class _Home_pageState extends State<Home_page> {
                               // Globals.u2 = allDocs[i]['uid'],
                             ]);
                           },
-                          leading: Text(documents[i].id),
-                          title: Text("Email: ${documents[i]['email']}"),
-                          subtitle: Text("Uid: ${documents[i]['uid']}"),
+                          // leading: Text(documents[i].id),
+                          leading: Text("${i + 1}"),
+                          title: Text(
+                            "${documents[i]['email']}",
+                            style: const TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.w500),
+                          ),
+                          subtitle: Text(
+                            documents[i]['email'].toString().split("@")[0],
+                            style: const TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          // subtitle: Text("Uid: ${documents[i]['uid']}"),
                           trailing: IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.navigate_next)),
+                            onPressed: () {},
+                            icon: const Icon(Icons.navigate_next),
+                          ),
                           // trailing: IconButton(
                           //   onPressed: () async {
                           //     await FireBaseFireStoreHelper

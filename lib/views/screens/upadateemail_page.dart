@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../controllers/theme_controller.dart';
 import '../../utills/helper/firebase_auth_helper.dart';
 
 class UpdateEmail_Page extends StatefulWidget {
@@ -15,6 +16,8 @@ class _UpdateEmail_PageState extends State<UpdateEmail_Page> {
   GlobalKey<FormState> updateemailformkey = GlobalKey<FormState>();
   String? newemail;
   TextEditingController updateemailController = TextEditingController();
+
+  ThemeController themeController = Get.put(ThemeController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +39,10 @@ class _UpdateEmail_PageState extends State<UpdateEmail_Page> {
                   onPressed: () {
                     Get.back();
                   },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  ),
+                  icon: Icon(Icons.arrow_back_ios,
+                      color: (themeController.darkModeModel.isdark)
+                          ? Colors.white
+                          : Colors.black),
                 ),
               ],
             ),

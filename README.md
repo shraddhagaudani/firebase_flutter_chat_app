@@ -86,6 +86,9 @@ Project Output:
   <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/f693f013-5cea-4d1f-9110-50f1c5e21e18" width="220px">
   <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/15b7ad6b-2ba5-4ae2-83fb-1b5473dada06" width="220px">
 
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/d66a7123-d17b-43f6-b9d2-f2ce50eb842e" width="220px">
+
+
 
 
 

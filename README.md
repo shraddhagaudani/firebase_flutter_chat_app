@@ -64,7 +64,40 @@ Project Evaluation:
 
 ## Getting Started
 
+Project Output:
+
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/1a3f14b3-7a99-4732-8a18-97225046ecac" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/89167a66-11fa-4781-8b00-c9385ded6823" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/6e497f08-7969-43b2-937c-5d579b7188d1" width="220px">
+
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/318f9c1b-6d62-479e-9475-2559d27c3ebb" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/807d3c7d-12e5-4b33-8e1f-fa1979dbf088" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/04e30dc2-fdc2-4e39-8012-37e7d9a5f5eb" width="220px">
+
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/c42d9163-c8a8-44e0-a4ac-89c7320c6092" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/497c1e2f-bb6c-4bd3-ab22-e43399d21b32" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/fad5b1ec-559d-41e7-8a97-e5384af8adcd" width="220px">
+
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/8c8f85a4-efc7-477a-8328-346db6db9344" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/b2f8cccd-4561-408c-bce1-e3511eca566b" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/695e445b-83cf-4788-ae15-1a46d247e132" width="220px">
+
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/2b9c2add-1bd1-4c35-a23f-964a46b78818" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/f693f013-5cea-4d1f-9110-50f1c5e21e18" width="220px">
+  <img align= "left" src="https://github.com/shraddhagaudani/firebase_flutter_chat_app/assets/122030732/15b7ad6b-2ba5-4ae2-83fb-1b5473dada06" width="220px">
+
+
+
+
+
+  
+
+
+  
+
+
 This project is a starting point for a Flutter application.
+
 
 A few resources to get you started if this is your first Flutter project:
 
